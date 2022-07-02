@@ -121,7 +121,7 @@
 
       // loop through a random number between 30 and 60
       // and push randomly a word from the wordsList array
-      for (let i = 0; i <= randomNumBetween(30, 60); i++) {
+      for (let i = 0; i <= randomNumBetween(60, 120); i++) {
         const randomWord = wordList[randomNumBetween(0, wordList.length - 1)];
         generatedParaArr.push(randomWord);
 
@@ -139,14 +139,16 @@
       if (
         generatedParaArr[generatedParaArr.length - 1] === "." ||
         generatedParaArr[generatedParaArr.length - 1] === "?" ||
-        generatedParaArr[generatedParaArr.length - 1] === "!" ||
-        generatedParaArr[generatedParaArr.length - 1] === ","
+        generatedParaArr[generatedParaArr.length - 1] === "!"
       ) {
         // append newline character
-        generatedParaArr.push("\n");
+        generatedParaArr.push("\n\n");
+      } else if (generatedParaArr[generatedParaArr.length - 1] === ",") {
+        generatedParaArr.pop();
+        generatedParaArr.push(".\n\n");
       } else {
         // append a perido and a newline character
-        generatedParaArr.push(".\n");
+        generatedParaArr.push(".\n\n");
       }
 
       // join the generatedParaArr, and replace any " <punctualCharacter>"
