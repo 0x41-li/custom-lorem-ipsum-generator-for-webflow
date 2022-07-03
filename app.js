@@ -114,7 +114,6 @@
       "you",
       "your",
     ];
-    const punctuationCharacters = [".", "!", "?", ","];
 
     generateBtn.addEventListener("click", function () {
       const generatedParaArr = [];
@@ -126,12 +125,8 @@
         generatedParaArr.push(randomWord);
 
         // insert punctual characters randomly
-        if (i % randomNumBetween(0, 10) === 0) {
-          generatedParaArr.push(
-            punctuationCharacters[
-              randomNumBetween(0, punctuationCharacters.length - 1)
-            ]
-          );
+        if (randomNumBetween(1, 30) % randomNumBetween(1, 30) === 3) {
+          generatedParaArr.push(",");
         }
       }
 
@@ -162,7 +157,9 @@
         .replaceAll(" .", ".");
 
       // append the generated string to the textarea input
-      textareaInput.value += generatedParaString;
+      textareaInput.value +=
+        generatedParaString.charAt(0).toUpperCase() +
+        generatedParaString.slice(1); // Capitalize the first letter of the first word
     });
   }
 
